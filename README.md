@@ -68,3 +68,7 @@ risc-v-pipelined-processor/
 │
 └── docs/
     └── architecture.png
+
+## Author
+
+Harsh Kumar Khobragade
