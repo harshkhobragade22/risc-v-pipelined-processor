@@ -2,36 +2,69 @@
 
 ## Overview
 
-This project implements a pipelined RISC-V processor using Verilog HDL.
+This project presents a Verilog RTL implementation of a pipelined RISC-V processor.
 
-The processor is divided into multiple pipeline stages to allow instruction-level parallelism and improve processor throughput.
+The design is organized into multiple pipeline stages to enable instruction-level parallelism and improve processor throughput.
 
-## Architecture
+## Processor Architecture
 
-The processor contains the following major stages:
+The processor consists of the following pipeline stages:
 
-- Instruction Fetch
-- Instruction Decode
-- Execute
-- Memory Access
-- Write Back
+1. Instruction Fetch (IF)
+2. Instruction Decode (ID)
+3. Execute (EX)
+4. Memory Access (MEM)
+5. Write Back (WB)
 
-## Main Components
+## Main Modules
 
-- ALU
-- Register File
-- Control Unit
+- Program Counter (PC)
+- PC Adder
 - Instruction Memory
+- Register File
+- ALU
+- Main Decoder
+- ALU Decoder
+- Control Unit
 - Data Memory
-- Program Counter
 - Hazard Unit
-- Pipeline Stages
+- Pipeline Stage Modules
 
-## Repository Structure
+## Project Structure
 
 ```text
-rtl/          - Verilog RTL modules
-testbench/    - Simulation testbench
-program/      - Instruction memory/program files
-simulation/   - Simulation results and waveforms
-docs/         - Architecture diagrams and documentation
+risc-v-pipelined-processor/
+│
+├── README.md
+├── .gitignore
+│
+├── rtl/
+│   ├── ALU.v
+│   ├── ALU_Decoder.v
+│   ├── Control_Unit_Top.v
+│   ├── Data_Memory.v
+│   ├── Decode_Cycle.v
+│   ├── Execute_Cycle.v
+│   ├── Fetch_Cycle.v
+│   ├── Hazard_Unit.v
+│   ├── Instruction_Memory.v
+│   ├── Main_Decoder.v
+│   ├── Memory_Cycle.v
+│   ├── Mux.v
+│   ├── PC.v
+│   ├── PC_Adder.v
+│   ├── Pipeline_Top.v
+│   └── Register_File.v
+│
+├── testbench/
+│   └── pipeline_tb.v
+│
+├── program/
+│   └── memfile.hex
+│
+├── simulation/
+│   ├── dump.vcd
+│   └── waveform.png
+│
+└── docs/
+    └── architecture.png
